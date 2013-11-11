@@ -1,6 +1,6 @@
 class ArtistsController < ApplicationController
   def index
-    artists = Artist.all.includes!(:records)
-    render :json => artists.to_json(:include => :records)
+    artists = Artist.all
+    render :json => artists.to_json
   end
 end

@@ -12,5 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require lib/underscore-min.js
+//= require lib/backbone-min
+//= require lib/backbone.marionette.min
 //= require_tree .
+
+var artists = new Artists();
+var artistsView;
+artists.fetch({
+  success: function(){
+    artistsView = new ArtistsView({collection:artists});
+    artistsView.render();
+  }
+})
+
